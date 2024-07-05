@@ -1,11 +1,11 @@
 {
-  "name": "goit-js-ap-2024-07-05",
+  "name": "goit-js-ap",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/goit-js-ap-2024-07-05/",
+    "build": "vite build --base=/goit-js-ap/",
     "preview": "vite preview"
   },
   "devDependencies": {
