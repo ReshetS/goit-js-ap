@@ -1,6 +1,6 @@
 # GoIT JavaScript additional practice
 
-Live site: 🔗 [reshets.github.io/goit-js-ap](https://reshets.github.io/goit-js-ap/)
+Live site: 🔗 [bablo.v.ua](https://bablo.v.ua)
 
 ## About the project
 

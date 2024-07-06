@@ -1,11 +1,11 @@
 {
-  "name": "goit-js-ap",
+  "name": "bablo.v.ua",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/goit-js-ap/",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -15,8 +15,6 @@
   "author": "Serhii Reshetniak <reshet@lozovaya.org.ua>",
   "license": "ISC",
   "dependencies": {
-    "izitoast": "^1.4.0",
-    "simplelightbox": "^2.14.3",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
