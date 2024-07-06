@@ -6,7 +6,6 @@
 */
 @import url('https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap');
-@import url('./reset.css');
 
 :root {
   font-family: 'Montserrat', sans-serif;
@@ -23,4 +22,160 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  color: currentColor;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  font-family: inherit;
+}
+.body {
+  position: relative;
+}
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.header {
+  position: fixed;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.header-list {
+  display: flex;
+  gap: 20px;
+}
+.header-item {
+  border-radius: 5px;
+  background-color: rgb(55, 169, 211);
+  height: 30px;
+  width: 120px;
+}
+.header-link {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+}
+.main {
+}
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.bablo {
+  font-weight: 600;
+  color: red;
+}
+.about-wrapper {
+  margin: 0 auto 50px;
+}
+.text-about {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.button {
+  height: 50px;
+  width: 80%;
+  display: block;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  font-size: 20px;
+}
+.text-underbutton {
+  text-align: center;
+}
+.counter {
+  font-weight: 500;
+  color: red;
+}
+.faq-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.faq-text {
+}
+
+.mega-bablo {
+  font-weight: 600;
+  color: rgb(255, 102, 0);
+  font-size: 20px;
+}
+
+.mega-bablo:hover {
+  font-weight: 700;
+
+  font-size: 22px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .button {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .button:hover,
+  .button:focus,
+  .button:active {
+    transform: scale(1.03);
+    background-color: #88aace;
+    border-color: #88aace;
+    text-transform: uppercase;
+    color: red;
+    font-weight: 700;
+  }
 }
