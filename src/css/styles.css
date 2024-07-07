@@ -8,15 +8,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap');
 
 :root {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  font-weight: 400;
-
-  color: #2e2f42;
-  background-color: rgba(255, 255, 255, 0.87);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -63,6 +54,13 @@ input {
 }
 .body {
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  color: #2e2f42;
+  background-color: rgba(255, 255, 255, 0.87);
 }
 .section {
   padding-top: 100px;
@@ -70,23 +68,30 @@ input {
 }
 .header {
   position: fixed;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  height: 50px;
+  z-index: 999;
+  padding: 20px 0;
 }
 .header-list {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 .header-item {
   border-radius: 5px;
   background-color: rgb(55, 169, 211);
   height: 30px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-item:nth-child(2) {
   width: 120px;
 }
+
 .header-link {
-  padding-top: 20px;
-  padding-bottom: 20px;
   color: #fff;
+  padding: 20px 0;
 }
 .main {
 }
@@ -94,13 +99,14 @@ input {
   min-width: 320px;
   max-width: 375px;
   width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0 auto;
 }
 .title {
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .bablo {
   font-weight: 600;
@@ -108,13 +114,17 @@ input {
 }
 .about-wrapper {
   margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
 }
 .text-about {
   text-align: center;
-  margin-bottom: 10px;
+  font-size: 16px;
 }
 .button {
-  height: 50px;
+  height: 80px;
   width: 80%;
   display: block;
   margin: 0 auto 20px;
@@ -123,6 +133,7 @@ input {
   background-color: #007bff;
   border-color: #007bff;
   font-size: 20px;
+  border-radius: 10px;
 }
 .text-underbutton {
   text-align: center;
@@ -137,8 +148,15 @@ input {
   margin-bottom: 20px;
 }
 .faq-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
+.faq-item {
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 10px;
+}
 .mega-bablo {
   font-weight: 600;
   color: rgb(255, 102, 0);
@@ -150,32 +168,69 @@ input {
 
   font-size: 22px;
 }
+.footer-link:hover,
+.footer-link:focus {
+  font-size: 17px;
+  color: red;
+}
 @media screen and (min-width: 768px) {
+  .body {
+    font-size: 16px;
+  }
   .container {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
+  .header-list {
+    gap: 20px;
+  }
   .button {
-    width: 200px;
+    width: 250px;
+  }
+  .text-about {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .title {
+    font-size: 36px;
+    margin-bottom: 50px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .header-item:hover,
+  .header-item:focus {
+    transform: scale(1.03);
+    background-color: antiquewhite;
   }
 
+  .header-item:hover .header-link {
+    color: #000;
+  }
+  .header-item:focus .header-link {
+    color: #000;
+  }
+  .text-about {
+    width: 1000px;
+    font-size: 20px;
+  }
   .button:hover,
   .button:focus,
   .button:active {
     transform: scale(1.03);
-    background-color: #88aace;
-    border-color: #88aace;
+    background-color: #0f80f8;
+    border-color: #0f80f8;
     text-transform: uppercase;
-    color: red;
+
     font-weight: 700;
+  }
+  .faq-item:hover {
+    background-color: beige;
   }
 }
