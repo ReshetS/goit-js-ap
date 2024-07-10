@@ -130,8 +130,8 @@ input {
   margin: 0 auto 20px;
   text-align: center;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: rgb(0, 123, 255);
+  border-color: rgb(0, 123, 255);
   font-size: 20px;
   border-radius: 10px;
 }
@@ -223,10 +223,8 @@ input {
   .button:hover,
   .button:focus,
   .button:active {
-    transform: scale(1.03);
-    background-color: #0f80f8;
-    border-color: #0f80f8;
-    text-transform: uppercase;
+    background-color: #0069d9;
+    border-color: #0069d9;
 
     font-weight: 700;
   }
