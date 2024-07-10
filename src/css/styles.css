@@ -52,6 +52,7 @@ img {
 input {
   font-family: inherit;
 }
+
 .body {
   position: relative;
   font-family: 'Montserrat', sans-serif;
@@ -62,20 +63,24 @@ input {
   color: #2e2f42;
   background-color: rgba(255, 255, 255, 0.87);
 }
+
 .section {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
 .header {
   position: fixed;
   height: 50px;
   z-index: 999;
   padding: 20px 0;
 }
+
 .header-list {
   display: flex;
   gap: 10px;
 }
+
 .header-item {
   border-radius: 5px;
   background-color: rgb(55, 169, 211);
@@ -85,6 +90,7 @@ input {
   justify-content: center;
   align-items: center;
 }
+
 .header-item:nth-child(2) {
   width: 120px;
 }
@@ -93,8 +99,7 @@ input {
   color: #fff;
   padding: 20px 0;
 }
-.main {
-}
+
 .container {
   min-width: 320px;
   max-width: 375px;
@@ -103,15 +108,18 @@ input {
   padding-right: 10px;
   margin: 0 auto;
 }
+
 .title {
   font-size: 24px;
   text-align: center;
   margin-bottom: 30px;
 }
+
 .bablo {
   font-weight: 600;
   color: red;
 }
+
 .about-wrapper {
   margin: 0 auto 50px;
   display: flex;
@@ -119,10 +127,12 @@ input {
   gap: 5px;
   align-items: center;
 }
+
 .text-about {
   text-align: center;
   font-size: 16px;
 }
+
 .button {
   height: 80px;
   width: 80%;
@@ -135,28 +145,34 @@ input {
   font-size: 20px;
   border-radius: 10px;
 }
+
 .text-underbutton {
   text-align: center;
 }
+
 .counter {
   font-weight: 500;
   color: red;
 }
+
 .faq-title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 20px;
 }
+
 .faq-text {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .faq-item {
   border-radius: 5px;
   border: 1px solid;
   padding: 10px;
 }
+
 .mega-bablo {
   font-weight: 600;
   color: rgb(255, 102, 0);
@@ -165,33 +181,39 @@ input {
 
 .mega-bablo:hover {
   font-weight: 700;
-
   font-size: 22px;
 }
+
 .footer-link:hover,
 .footer-link:focus {
   font-size: 17px;
   color: red;
 }
+
 @media screen and (min-width: 768px) {
   .body {
     font-size: 16px;
   }
+
   .container {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
+
   .header-list {
     gap: 20px;
   }
+
   .button {
     width: 250px;
   }
+
   .text-about {
     margin-bottom: 10px;
     font-size: 18px;
   }
+
   .title {
     font-size: 36px;
     margin-bottom: 50px;
@@ -204,6 +226,7 @@ input {
     padding-left: 50px;
     padding-right: 50px;
   }
+
   .header-item:hover,
   .header-item:focus {
     transform: scale(1.03);
@@ -213,21 +236,24 @@ input {
   .header-item:hover .header-link {
     color: #000;
   }
+
   .header-item:focus .header-link {
     color: #000;
   }
+
   .text-about {
     width: 1000px;
     font-size: 20px;
   }
+
   .button:hover,
   .button:focus,
   .button:active {
     background-color: #0069d9;
     border-color: #0069d9;
-
     font-weight: 700;
   }
+
   .faq-item:hover {
     background-color: beige;
   }
