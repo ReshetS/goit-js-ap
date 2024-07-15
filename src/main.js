@@ -28,13 +28,17 @@ if (savedData === null) {
     .then(function (response) {
       console.log(response);
       user.bablo = response.data.bablo; // в об'єкт юзера записуємо кількість його бабла
-      countSpan.innerHTML = user.bablo;
+      countSpan.innerHTML = user.bablo.toString(); // змінюємо контент спану на кількість бабла в об'єкті юзера
     })
     .catch(function (error) {
       console.log(error);
+      // А тут треба буже буде вивести помилку на фронтенд таким чином, щоб юзер зміг обнулити свій LS
+      // По типу "Виникла помилка при запиті Ваших даних з серверу. Спробуйте пізніше або почніть зпочатку, натиснувши кнопку"
+      // То ж ще й напишемо функцію startFromScratch(), яка буде створювати нового юзера на бекенді і перезаписувати значення userID в LS
     });
 }
 
 button.addEventListener('click', () => {
-  addBablo(user);
-}); // додаємо прослуховувач по кліку
+  // додаємо прослуховувач по кліку
+  addBablo(user, countSpan); // викликаємо функцію для обробки кліку
+});
