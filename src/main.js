@@ -1,13 +1,40 @@
+import axios from 'axios';
 import { addBablo } from './js/functions'; // імпортуємо функцію прослуховувача
 
 const button = document.querySelector('.button'); // витягуємо елемент кнопки для додавання прослуховувача
 const countSpan = document.querySelector('#count'); // витягуємо елемент спану у змінну
 
-const key = 'LSkey'; // Додаємо ключ для локал сторедж
-const savedInfo = localStorage.getItem(key); //дістаємо значення із стореджу
-if (savedInfo) {
-  //якщо сторедж не пустий, то...
-  countSpan.innerHTML = JSON.parse(savedInfo); //розпарсили значення стореджу і перезаписали значення спану
+axios.defaults.baseURL = 'https://668581e2b3f57b06dd4cf9fd.mockapi.io/api/v1'; //задаємо базову адресу нашого бекенду для аксіос
+const LS_KEY = 'UserID'; //задаємо ключ для локал сторедж
+const user = { bablo: 0 }; // створюємо об'єкт юзера з дефолтними даними
+const savedData = localStorage.getItem(LS_KEY); // дістаємо значення із стореджу
+
+if (savedData === null) {
+  //якщо сторедж пустий, то ...
+  axios
+    .post('user', user) // створюємо нового юзера на бекенді
+    .then(function (response) {
+      user.userID = Number(response.data.userID); // в об'єкт юзера заносимо його новостворений ІД у числовому форматі
+      localStorage.setItem(LS_KEY, JSON.stringify(user.userID)); // зберігаємо ІД юзера у ЛС
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+} else {
+  // якщо сторедж не пустий, то ...
+  user.userID = Number(savedData); //в об'єкт юзера заносимо його ІД з ЛС
+  axios
+    .get(`user/${user.userID}`) // здійснюємо запит на бекенд по ІД юзера
+    .then(function (response) {
+      console.log(response);
+      user.bablo = response.data.bablo; // в об'єкт юзера записуємо кількість його бабла
+      countSpan.innerHTML = user.bablo;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
-button.addEventListener('click', addBablo); // додаємо прослуховувач по кліку
+button.addEventListener('click', () => {
+  addBablo(user);
+}); // додаємо прослуховувач по кліку

@@ -1,9 +1,16 @@
-export function addBablo() {
+import axios from 'axios';
+axios.defaults.baseURL = 'https://668581e2b3f57b06dd4cf9fd.mockapi.io/api/v1'; //задаємо базову адресу нашого бекенду для аксіос
+
+export function addBablo(user) {
   // створюємо функцію для обробки прослуховувача кліку кнопки
   const countSpan = document.querySelector('#count'); // витягуємо елемент спану у змінну
-  let count = Number(countSpan.innerHTML); // витягуємо поточне значення спану
-  count++; // збільшуємо значення змінної count на 1
-  countSpan.innerHTML = count; // змінюємо контент спану на значення count
-  const key = 'LSkey'; // Додаємо ключ для локал сторедж
-  localStorage.setItem(key, JSON.stringify(count)); //Додаємо в сторедж значення count (поточне значення спану)
+  user.bablo += 1; // збільшуємо значення бабла у об'єкта юзера на 1
+  axios
+    .patch(`user/${user.userID}`, { bablo: user.bablo }) //змінюємо значення бабла у юзера на бекенді
+    .then(function () {
+      countSpan.innerHTML = user.bablo; //якщо змінилось значення бабла на фронтенді то змінюємо значення і на бекенді
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }

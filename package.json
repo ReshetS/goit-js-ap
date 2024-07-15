@@ -15,6 +15,7 @@
   "author": "Serhii Reshetniak <reshet@lozovaya.org.ua>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.2",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
