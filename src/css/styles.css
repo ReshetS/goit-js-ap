@@ -53,6 +53,10 @@ input {
   font-family: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .body {
   position: relative;
   font-family: 'Montserrat', sans-serif;
