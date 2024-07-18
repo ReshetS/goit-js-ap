@@ -11,7 +11,7 @@ First of all, this is a joke site! It is based on my [bablo.eu.org](https://babl
 
 * [x] When user clicks on the button «Бабло!», amount of "his money" increases by 1.
 
-* [ ] Since this project was created in Nov 2014, its markup is very outdated, we need to update markup of `src/index.html` and add correct styles to `src/css/styles.css`
+* [x] Since this project was created in Nov 2014, its markup is very outdated, we need to update markup of `src/index.html` and add correct styles to `src/css/styles.css`
 
 * [x] Original site saves current amount of money to the database and uses cookie to identify user and get his amount of money from that database, but I think in this project we can use (for now) LocalStorage to save his amount.
 
