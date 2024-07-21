@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://668581e2b3f57b06dd4cf9fd.mockapi.io/api/v1'; //задаємо базову адресу нашого бекенду для аксіос
 
-export function addBablo(user, element) {
+function addBablo(user, element) {
   // створюємо функцію для обробки кліку по кнопці, приймаємо об'єкт юзера і посилання на спан у змінну element
   user.bablo += 1; // збільшуємо значення бабла у об'єкта юзера на 1
   axios
@@ -13,3 +13,18 @@ export function addBablo(user, element) {
       console.log(error);
     });
 }
+function startFromScratch(user, LS_KEY, element) {
+  axios
+    .post('user', { bablo: 0 }) // створюємо нового юзера на бекенді
+    .then(function (response) {
+      user.userID = Number(response.data.userID); // в об'єкт юзера заносимо його новостворений ІД у числовому форматі
+      user.bablo = 0; // обнуляємо кількість бабла у об'єкті юзера
+      element.innerHTML = '0'; //обнуляємо кількість бабла на сторінці
+      localStorage.setItem(LS_KEY, JSON.stringify(user.userID)); // зберігаємо ІД юзера у ЛС
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export { addBablo, startFromScratch };
