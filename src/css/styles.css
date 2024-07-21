@@ -140,7 +140,7 @@ html {
 .button {
   height: 80px;
   width: 80%;
-  display: block;
+  display: flex;
   margin: 0 auto 20px;
   text-align: center;
   color: #fff;
@@ -148,6 +148,9 @@ html {
   border-color: rgb(0, 123, 255);
   font-size: 20px;
   border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
 }
 
 .text-underbutton {
@@ -210,7 +213,7 @@ html {
   }
 
   .button {
-    width: 250px;
+    width: 350px;
   }
 
   .text-about {
@@ -255,10 +258,28 @@ html {
   .button:active {
     background-color: #0069d9;
     border-color: #0069d9;
-    font-weight: 700;
   }
 
   .faq-item:hover {
     background-color: beige;
+  }
+}
+.loader {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #fff;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

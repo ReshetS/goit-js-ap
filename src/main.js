@@ -2,12 +2,11 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { addBablo, startFromScratch } from './js/functions'; // імпортуємо функцію прослуховувача
+import elements from './js/refs'; // витягуємо елементи кнопки та спану в змінну
+import { axiosURL, LS_KEY } from './js/variables';
 
-const button = document.querySelector('.button'); // витягуємо елемент кнопки для додавання прослуховувача
-const countSpan = document.querySelector('#count'); // витягуємо елемент спану у змінну
+axios.defaults.baseURL = axiosURL; //задаємо базову адресу нашого бекенду для аксіос
 
-axios.defaults.baseURL = 'https://668581e2b3f57b06dd4cf9fd.mockapi.io/api/v1'; //задаємо базову адресу нашого бекенду для аксіос
-const LS_KEY = 'UserID'; //задаємо ключ для локал сторедж
 const user = { bablo: 0 }; // створюємо об'єкт юзера з дефолтними даними
 const savedData = localStorage.getItem(LS_KEY); // дістаємо значення із стореджу
 
@@ -30,14 +29,14 @@ if (savedData === null) {
     .then(function (response) {
       console.log(response);
       user.bablo = response.data.bablo; // в об'єкт юзера записуємо кількість його бабла
-      countSpan.innerHTML = user.bablo.toString(); // змінюємо контент спану на кількість бабла в об'єкті юзера
+      elements.countSpan.innerHTML = user.bablo.toString(); // змінюємо контент спану на кількість бабла в об'єкті юзера
     })
     .catch(function (error) {
       // Оброблюємо помилку
       console.log(error);
       if (error.response && error.response.status === 404) {
         //робимо перевірку на наявність 404 помилки(коли юзера не існує на бекенді)
-        startFromScratch(user, LS_KEY, countSpan); //викликаємо функцію для створення нового юзера
+        startFromScratch(user); //викликаємо функцію для створення нового юзера
       } else {
         // виводимо помилку
         iziToast.error({
@@ -49,7 +48,7 @@ if (savedData === null) {
     });
 }
 
-button.addEventListener('click', () => {
+elements.button.addEventListener('click', () => {
   // додаємо прослуховувач по кліку
-  addBablo(user, countSpan); // викликаємо функцію для обробки кліку
+  addBablo(user); // викликаємо функцію для обробки кліку
 });
