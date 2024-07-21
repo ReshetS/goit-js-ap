@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { addBablo } from './js/functions'; // імпортуємо функцію прослуховувача
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import { addBablo, startFromScratch } from './js/functions'; // імпортуємо функцію прослуховувача
 
 const button = document.querySelector('.button'); // витягуємо елемент кнопки для додавання прослуховувача
 const countSpan = document.querySelector('#count'); // витягуємо елемент спану у змінну
@@ -33,9 +35,17 @@ if (savedData === null) {
     .catch(function (error) {
       // Оброблюємо помилку
       console.log(error);
-      // А тут треба буже буде вивести помилку на фронтенд таким чином, щоб юзер зміг обнулити свій LS
-      // По типу "Виникла помилка при запиті Ваших даних з серверу. Спробуйте пізніше або почніть зпочатку, натиснувши кнопку"
-      // То ж ще й напишемо функцію startFromScratch(), яка буде створювати нового юзера на бекенді і перезаписувати значення userID в LS
+      if (error.response && error.response.status === 404) {
+        //робимо перевірку на наявність 404 помилки(коли юзера не існує на бекенді)
+        startFromScratch(user, LS_KEY, countSpan); //викликаємо функцію для створення нового юзера
+      } else {
+        // виводимо помилку
+        iziToast.error({
+          title: 'Помилка',
+          message: `Виникла помилка при запиті Ваших даних з серверу. Спробуйте пізніше`,
+          position: 'topRight',
+        });
+      }
     });
 }
 
