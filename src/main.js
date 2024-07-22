@@ -27,13 +27,11 @@ if (savedData === null) {
   axios
     .get(`user/${user.userID}`) // здійснюємо запит на бекенд по ІД юзера
     .then(function (response) {
-      console.log(response);
       user.bablo = response.data.bablo; // в об'єкт юзера записуємо кількість його бабла
       elements.countSpan.innerHTML = user.bablo.toString(); // змінюємо контент спану на кількість бабла в об'єкті юзера
     })
     .catch(function (error) {
       // Оброблюємо помилку
-      console.log(error);
       if (error.response && error.response.status === 404) {
         //робимо перевірку на наявність 404 помилки(коли юзера не існує на бекенді)
         startFromScratch(user); //викликаємо функцію для створення нового юзера

@@ -228,6 +228,10 @@ html {
 }
 
 @media screen and (min-width: 1280px) {
+  .button {
+    width: 400px;
+  }
+
   .container {
     max-width: 1280px;
     padding-left: 50px;
